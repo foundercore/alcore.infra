@@ -37,8 +37,8 @@ ROOT_DIR=/home/ubuntu/.alcore
 NATIVE_DIR=$ROOT_DIR/native
 CONF_DIR=/var/tmp/configuration
 
-git clone --single-branch --branch $OPENEDX_RELEASE_BRANCH git@github.com:foundercore/configuration.git $CONF_DIR
-git clone --single-branch --branch $OPENEDX_RELEASE_BRANCH git@github.com:foundercore/configuration.git /tmp/configuration
+git clone --single-branch --branch $OPENEDX_RELEASE git@github.com:foundercore/configuration.git $CONF_DIR
+git clone --single-branch --branch $OPENEDX_RELEASE git@github.com:foundercore/configuration.git /tmp/configuration
 cp $CONF_DIR/util/install/* $ROOT_DIR
 
 cd $ROOT_DIR
