@@ -1,3 +1,4 @@
 .idea
 tmp
 local.mk
+*.out
