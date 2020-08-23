@@ -1,6 +1,10 @@
 ROOT_DIR=/home/ubuntu/.alcore
 
+# Local Helper Scripts
 -include local.mk
+
+# Post Install Configuration Steps
+include alcore.mk
 
 env.setup.folder:
 	mkdir -p $(ROOT_DIR)
