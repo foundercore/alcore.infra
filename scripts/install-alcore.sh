@@ -29,14 +29,14 @@ export LC_CTYPE="en_US.UTF-8"
 #export LC_IDENTIFICATION=?~@~]es_ES.UTF-8?~@~]
 source ./config.sh
 
-git clone --single-branch --branch $(OPENEDX_RELEASE_BRANCH) git@github.com:foundercore/configuration.git $(CONF_DIR)
-git clone --single-branch --branch $(OPENEDX_RELEASE_BRANCH) git@github.com:foundercore/configuration.git /tmp/configuration
-cp $(CONF_DIR)/util/install/* $(ROOT_DIR)/
+git clone --single-branch --branch $OPENEDX_RELEASE_BRANCH git@github.com:foundercore/configuration.git $CONF_DIR
+git clone --single-branch --branch $OPENEDX_RELEASE_BRANCH git@github.com:foundercore/configuration.git /tmp/configuration
+cp $CONF_DIR/util/install/* $ROOT_DIR/
 
-cd $(ROOT_DIR)
+cd $ROOT_DIR
 
 sudo -E bash ansible-bootstrap.sh
 . /edx/app/edx_ansible/venvs/edx_ansible/bin/activate
 
 sudo -E bash generate-passwords.sh
-sudo -E bash native.sh > install.out
+sudo -E bash native.sh
