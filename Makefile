@@ -29,9 +29,13 @@ prepare.env: env.update.self env.setup.folder env.setup.config
 prepare.env.demo: env.update.self env.setup.folder env.demo.setup.config
 	sh ./scripts/configure-instance.sh
 
+prepare.alcore:
+	sudo chmod 755 ./scripts/prepare-alcore-install.sh
+	sudo sh ./scripts/prepare-alcore-install.sh
+
 install.alcore:
 	sudo chmod 755 ./scripts/install-alcore.sh
 	sudo sh ./scripts/install-alcore.sh
 
-install: prepare.env install.alcore
-install.demo: prepare.env.demo install.alcore
+install: prepare.env prepare.alcore install.alcore
+install.demo: prepare.env.demo prepare.alcore install.alcore
