@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env bash
 # This script takes around 2 hours to complete. It is intended to be run unattended, on a background thread using
 # nohup.
 #---------------------------------------------------------
@@ -27,18 +27,16 @@ export LC_CTYPE="en_US.UTF-8"
 #export LC_TELEPHONE=?~@~]es_ES.UTF-8?~@~]
 #export LC_MEASUREMENT=?~@~]es_ES.UTF-8?~@~]
 #export LC_IDENTIFICATION=?~@~]es_ES.UTF-8?~@~]
+source ./config.sh
 
-# 1. Set the OPENEDX_RELEASE variable:
-#export OPENEDX_RELEASE=open-release/ginkgo.2
-# Note: sometimes there are important bug fixes in master that are not included in the named releases.
-#       to date i've always had the best luck with master.
-export OPENEDX_RELEASE=open-release/juniper.master
+git clone --single-branch --branch $(OPENEDX_RELEASE_BRANCH) git@github.com:foundercore/configuration.git $(CONF_DIR)
+git clone --single-branch --branch $(OPENEDX_RELEASE_BRANCH) git@github.com:foundercore/configuration.git /tmp/configuration
+cp $(CONF_DIR)/util/install/* $(ROOT_DIR)/
 
-# 2. Bootstrap the Ansible installation:
-wget https://raw.githubusercontent.com/edx/configuration/$OPENEDX_RELEASE/util/install/ansible-bootstrap.sh -O - | sudo -H bash
+cd $(ROOT_DIR)
 
-# 3. (Optional) If this is a new installation, randomize the passwords:
-wget https://raw.githubusercontent.com/edx/configuration/$OPENEDX_RELEASE/util/install/generate-passwords.sh -O - | bash
+sudo -E bash ansible-bootstrap.sh
+. /edx/app/edx_ansible/venvs/edx_ansible/bin/activate
 
-# 4. Install Open edX:
-wget https://raw.githubusercontent.com/edx/configuration/$OPENEDX_RELEASE/util/install/native.sh -O - | bash > install.out
+sudo -E bash generate-passwords.sh
+sudo -E bash native.sh > install.out

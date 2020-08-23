@@ -4,7 +4,9 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/../alcore-pipeline/.idea/alcore-pipeline.iml" filepath="$PROJECT_DIR$/../alcore-pipeline/.idea/alcore-pipeline.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/alcore.infra.iml" filepath="$PROJECT_DIR$/.idea/alcore.infra.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../configuration/.idea/configuration.iml" filepath="$PROJECT_DIR$/../configuration/.idea/configuration.iml" />
       <module fileurl="file://$PROJECT_DIR$/../devstack/.idea/devstack.iml" filepath="$PROJECT_DIR$/../devstack/.idea/devstack.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../edx-platform/.idea/edx-platform.iml" filepath="$PROJECT_DIR$/../edx-platform/.idea/edx-platform.iml" />
     </modules>
   </component>
 </project>

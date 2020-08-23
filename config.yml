@@ -1,2 +1,2 @@
-EDXAPP_LMS_BASE: "lms.alcore.academy"
-EDXAPP_CMS_BASE: "cms.alcore.academy"
+EDXAPP_LMS_BASE: "learn.alcore.academy"
+EDXAPP_CMS_BASE: "studio.alcore.academy"

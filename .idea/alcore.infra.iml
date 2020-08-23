@@ -6,5 +6,7 @@
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="module" module-name="alcore-pipeline" />
     <orderEntry type="module" module-name="devstack" />
+    <orderEntry type="module" module-name="edx-platform" />
+    <orderEntry type="module" module-name="configuration" />
   </component>
 </module>
