@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/../alcore-pipeline/.idea/alcore-pipeline.iml" filepath="$PROJECT_DIR$/../alcore-pipeline/.idea/alcore-pipeline.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/alcore.infra.iml" filepath="$PROJECT_DIR$/.idea/alcore.infra.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../devstack/.idea/devstack.iml" filepath="$PROJECT_DIR$/../devstack/.idea/devstack.iml" />
     </modules>
   </component>
 </project>
