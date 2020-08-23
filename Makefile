@@ -14,6 +14,8 @@ env.setup.ssh:
 prepare.env: env.setup.folder env.setup.config
 	sh ./scripts/configure-instance.sh
 
-install.alcore: prepare.env
+install.alcore:
 	sudo chmod 755 ./scripts/install-alcore.sh
 	sudo nohup ./scripts/install-alcore.sh &
+
+install: prepare.env install.alcore
