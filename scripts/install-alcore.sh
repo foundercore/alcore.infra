@@ -37,6 +37,9 @@ ROOT_DIR=/home/ubuntu/.alcore
 NATIVE_DIR=$ROOT_DIR/native
 CONF_DIR=/var/tmp/configuration
 
+eval "$(ssh-agent -s)"
+ssh-add ~/.ssh/id_rsa
+
 git clone --single-branch --branch $OPENEDX_RELEASE git@github.com:foundercore/configuration.git $CONF_DIR
 git clone --single-branch --branch $OPENEDX_RELEASE git@github.com:foundercore/configuration.git /tmp/configuration
 cp $CONF_DIR/util/install/* $ROOT_DIR
