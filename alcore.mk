@@ -9,10 +9,10 @@ alcore.add-user:
 	sudo usermod -a -G edxapp ubuntu
 
 alcore.config.update:
-	cp ./configs/lms.env.json /edx/app/edxapp/lms.env.json
-	cp ./configs/lms.auth.json /edx/app/edxapp/lms.auth.json
-	cp ./configs/cms.env.json /edx/app/edxapp/cms.env.json
-	cp ./configs/cms.auth.json /edx/app/edxapp/cms.auth.json
+	sudo cp ./configs/lms.env.json /edx/app/edxapp/lms.env.json
+	sudo cp ./configs/lms.auth.json /edx/app/edxapp/lms.auth.json
+	sudo cp ./configs/cms.env.json /edx/app/edxapp/cms.env.json
+	sudo cp ./configs/cms.auth.json /edx/app/edxapp/cms.auth.json
 
 alcore.config.apply: alcore.config.update alcore.restart
 
