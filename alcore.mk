@@ -15,10 +15,10 @@ alcore.configure.update:
 	sudo cp ./configs/cms.auth.json /edx/app/edxapp/cms.auth.json
 
 alcore.configure.update.bit:
-	sudo cp ./configs/bit/lms.env.json /edx/app/edxapp/conf/lms.env.json
-	sudo cp ./configs/bit/lms.auth.json /edx/app/edxapp/conf/lms.auth.json
-	sudo cp ./configs/bit/cms.env.json /edx/app/edxapp/conf/cms.env.json
-	sudo cp ./configs/bit/cms.auth.json /edx/app/edxapp/conf/cms.auth.json
+	sudo cp ./configs/bit/lms.env.json /opt/bitnami/apps/edx/conf/lms.env.json
+	sudo cp ./configs/bit/lms.auth.json /opt/bitnami/apps/edx/conf/lms.auth.json
+	sudo cp ./configs/bit/cms.env.json /opt/bitnami/apps/edx/conf/cms.env.json
+	sudo cp ./configs/bit/cms.auth.json /opt/bitnami/apps/edx/conf/cms.auth.json
 
 alcore.static.compile:
 	sudo chmod 755 ./scripts/compile-assets.sh
