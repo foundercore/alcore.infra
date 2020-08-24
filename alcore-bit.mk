@@ -8,7 +8,7 @@ alcore.setup.theme:
 	sudo chmod 755 ./scripts/setup-themes.sh
 	sh ./scripts/setup-themes.sh
 
-alcore.rebuild.static:
+alcore.rebuild.static: alcore.setup.theme
 	sudo /opt/bitnami/apps/edx/bin/edxapp-update-assets-lms
 	sudo /opt/bitnami/apps/edx/bin/edxapp-update-assets-cms
 
