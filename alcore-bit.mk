@@ -5,12 +5,10 @@ alcore.apply.configuration:
 	sudo cp ./configs/bit/cms.auth.json /opt/bitnami/apps/edx/conf/cms.auth.json
 
 alcore.setup.theme:
-	sudo rm -rf /opt/bitnami/apps/edx/var/themes/*; \
-		cd /opt/bitnami/apps/edx/var/themes; \
-			sudo git clone git@github.com:foundercore/alcore.themes .; sudo chown -R daemon.daemon .
+	sudo chmod 755 ./scripts/setup-themes.sh
+	sh ./scripts/setup-themes.sh
 
-alcore.update.theme:
-	cd /opt/bitnami/apps/edx/var/themes; git pull
+alcore.rebuild.static:
 	sudo /opt/bitnami/apps/edx/bin/edxapp-update-assets-lms
 	sudo /opt/bitnami/apps/edx/bin/edxapp-update-assets-cms
 
