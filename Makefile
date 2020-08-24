@@ -41,7 +41,7 @@ prepare.alcore:
 	sudo chmod 755 ./scripts/prepare-alcore-install.sh
 	sudo sh ./scripts/prepare-alcore-install.sh
 
-install.alcore:
+install.alcore: env.update.self
 	sudo chmod 755 ./scripts/install-alcore.sh
 	sudo sh ./scripts/install-alcore.sh
 
