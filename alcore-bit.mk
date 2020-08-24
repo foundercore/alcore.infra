@@ -7,7 +7,7 @@ alcore.apply.configuration:
 alcore.setup.theme:
 	sudo rm -rf /opt/bitnami/apps/edx/var/themes/*; \
 		cd /opt/bitnami/apps/edx/var/themes; \
-			git clone git@github.com:foundercore/alcore.themes .
+			sudo git clone git@github.com:foundercore/alcore.themes .; sudo chown -R daemon.daemon .
 
 alcore.update.theme:
 	cd /opt/bitnami/apps/edx/var/themes; git pull
