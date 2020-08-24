@@ -14,6 +14,10 @@ alcore.config.update:
 	sudo cp ./configs/cms.env.json /edx/app/edxapp/cms.env.json
 	sudo cp ./configs/cms.auth.json /edx/app/edxapp/cms.auth.json
 
+	sudo -H -u edxapp bash; source /edx/app/edxapp/edxapp_env; \
+		cd /edx/app/edxapp/edx-platform; paver update_assets lms --settings=production; \
+		paver update_assets cms --settings=production;
+
 alcore.config.apply: alcore.config.update alcore.restart
 
 alcore.restart.lms:
