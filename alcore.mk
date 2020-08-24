@@ -25,4 +25,4 @@ alcore.restart.cms:
 alcore.restart.worker:
 	/edx/bin/supervisorctl restart edxapp_worker
 
-alcore.restart: alcore.restart.cms alcore.restart.lms alcore.restart.worker
+alcore.restart: alcore.restart.cms alcore.restart.lms

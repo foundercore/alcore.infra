@@ -18,6 +18,10 @@ env.demo.setup.config:
 env.setup.ssh:
 	sh ./scripts/configure-ssh.sh
 
+env.setup.themes:
+	sudo chmod 755 ./scripts/configure-themes.sh
+	sh ./scripts/configure-themes.sh
+
 env.update.self:
 	git pull
 
@@ -27,10 +31,10 @@ watch.log.installer:
 watch.log.install:
 	sudo tail -f ~/install.out
 
-prepare.env: env.update.self env.setup.folder env.setup.config
+prepare.env: env.update.self env.setup.folder env.setup.config env.setup.themes
 	sh ./scripts/configure-instance.sh
 
-prepare.env.demo: env.update.self env.setup.folder env.demo.setup.config
+prepare.env.demo: env.update.self env.setup.folder env.demo.setup.config env.setup.themes
 	sh ./scripts/configure-instance.sh
 
 prepare.alcore:
