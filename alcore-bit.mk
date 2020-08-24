@@ -5,7 +5,7 @@ alcore.apply.configuration:
 	sudo cp ./configs/bit/cms.auth.json /opt/bitnami/apps/edx/conf/cms.auth.json
 
 alcore.setup.theme:
-	sudo rm -rf /opt/bitnami/apps/edx/var/themes; \
+	sudo rm -rf /opt/bitnami/apps/edx/var/themes/*; \
 		cd /opt/bitnami/apps/edx/var/themes; \
 			git clone git@github.com:foundercore/alcore.themes .
 
