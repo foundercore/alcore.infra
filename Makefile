@@ -19,6 +19,7 @@ env.setup.ssh:
 	sh ./scripts/configure-ssh.sh
 
 env.setup.themes:
+	sudo rm -rf /home/ubuntu/alcore.themes
 	sudo chmod 755 ./scripts/configure-themes.sh
 	sh ./scripts/configure-themes.sh
 
