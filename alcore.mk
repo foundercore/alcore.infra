@@ -8,7 +8,7 @@ alcore.add-user:
 	sudo usermod -a -G www-data ubuntu
 	sudo usermod -a -G edxapp ubuntu
 
-alcore.config.update:
+alcore.configure.update:
 	sudo cp ./configs/lms.env.json /edx/app/edxapp/lms.env.json
 	sudo cp ./configs/lms.auth.json /edx/app/edxapp/lms.auth.json
 	sudo cp ./configs/cms.env.json /edx/app/edxapp/cms.env.json
@@ -22,16 +22,16 @@ alcore.change-owner.themes:
 	chown edxapp -R /home/ubuntu/alcore.themes
 	chgrp edxapp -R /home/ubuntu/alcore.themes
 
-alcore.config.apply: alcore.config.update alcore.static.compile alcore.restart
+alcore.configure.apply: alcore.configure.update alcore.static.compile alcore.restart
 
-alcore.config.ssl:
+alcore.configure.ssl:
 	sudo apt-get install certbot python-certbot-nginx -y
 	sudo certbot --authenticator standalone --installer nginx --pre-hook "service nginx stop" --post-hook "service nginx start"
 
-alcore.config.nginx.lms:
+alcore.configure.nginx.lms:
 	sudo vim /edx/app/nginx/sites-available/lms
 
-alcore.config.nginx.cms:
+alcore.configure.nginx.cms:
 	sudo vim /edx/app/nginx/sites-available/cms
 
 alcore.restart.lms:
