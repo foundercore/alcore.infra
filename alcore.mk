@@ -18,6 +18,10 @@ alcore.static.compile:
 	sudo chmod 755 ./scripts/compile-assets.sh
 	sh ./scripts/compile-assets.sh
 
+alcore.change-owner.themes:
+	chown edxapp -R /home/ubuntu/alcore.themes
+	chgrp edxapp -R /home/ubuntu/alcore.themes
+
 alcore.config.apply: alcore.config.update alcore.static.compile alcore.restart
 
 alcore.restart.lms:
