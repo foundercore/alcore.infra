@@ -24,6 +24,10 @@ alcore.change-owner.themes:
 
 alcore.config.apply: alcore.config.update alcore.static.compile alcore.restart
 
+alcore.ssl.configure:
+	sudo apt-get install certbot python-certbot-nginx -y
+	sudo certbot --authenticator standalone --installer nginx --pre-hook "service nginx stop" --post-hook "service nginx start"
+
 alcore.restart.lms:
 	/edx/bin/supervisorctl restart lms
 
