@@ -5,6 +5,7 @@ ROOT_DIR=/home/ubuntu/.alcore
 
 # Post Install Configuration Steps
 include alcore.mk
+include alcore-bit.mk
 
 env.setup.folder:
 	mkdir -p $(ROOT_DIR)
