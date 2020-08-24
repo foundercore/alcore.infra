@@ -14,6 +14,12 @@ alcore.configure.update:
 	sudo cp ./configs/cms.env.json /edx/app/edxapp/cms.env.json
 	sudo cp ./configs/cms.auth.json /edx/app/edxapp/cms.auth.json
 
+alcore.configure.update.bit:
+	sudo cp ./configs/bit/lms.env.json /edx/app/edxapp/lms.env.json
+	sudo cp ./configs/bit/lms.auth.json /edx/app/edxapp/lms.auth.json
+	sudo cp ./configs/bit/cms.env.json /edx/app/edxapp/cms.env.json
+	sudo cp ./configs/bit/cms.auth.json /edx/app/edxapp/cms.auth.json
+
 alcore.static.compile:
 	sudo chmod 755 ./scripts/compile-assets.sh
 	sh ./scripts/compile-assets.sh
@@ -42,5 +48,9 @@ alcore.restart.cms:
 
 alcore.restart.worker:
 	/edx/bin/supervisorctl restart edxapp_worker
+
+alcore.restart.bit:
+	sudo /opt/bitnami/ctlscript.sh restart apache
+	sudo /opt/bitnami/ctlscript.sh restart edx
 
 alcore.restart: alcore.restart.cms alcore.restart.lms
