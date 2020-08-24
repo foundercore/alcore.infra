@@ -41,6 +41,8 @@ eval "$(ssh-agent -s)"
 ssh-add ~/.ssh/id_rsa
 
 git clone --single-branch --branch $OPENEDX_RELEASE git@github.com:foundercore/configuration.git $CONF_DIR
+
+sudo rm -rf /tmp/configuration
 git clone --single-branch --branch $OPENEDX_RELEASE git@github.com:foundercore/configuration.git /tmp/configuration
 cp $CONF_DIR/util/install/* $ROOT_DIR
 
