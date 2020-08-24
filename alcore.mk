@@ -54,3 +54,5 @@ alcore.restart.bit:
 	sudo /opt/bitnami/ctlscript.sh restart edx
 
 alcore.restart: alcore.restart.cms alcore.restart.lms
+
+alcore.bit.update.configuration: alcore.configure.update.bit alcore.restart.bit
