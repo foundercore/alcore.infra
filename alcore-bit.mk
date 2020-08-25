@@ -18,3 +18,9 @@ alcore.refresh: alcore.apply.configuration
 
 alcore.init:
 	sudo /opt/bitnami/bnhelper-tool
+
+alcore.log.lms:
+	cat /opt/bitnami/apps/edx/var/log/lms/edx.log
+
+alcore.log.cms:
+	cat /opt/bitnami/apps/edx/var/log/lms/edx.log
