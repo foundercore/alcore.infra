@@ -9,7 +9,7 @@ alcore.setup.theme:
 	sh ./scripts/setup-themes.sh
 
 alcore.setup.domain:
-
+	echo '#TODO'
 
 alcore.rebuild.static: alcore.setup.theme
 	sudo /opt/bitnami/apps/edx/bin/edxapp-update-assets-lms
@@ -29,3 +29,7 @@ alcore.log.lms:
 
 alcore.log.cms:
 	cat /opt/bitnami/apps/edx/var/log/lms/edx.log
+
+alcore.course.delete:
+	sudo chmod 755 ./scripts/remove-course.sh
+	sh ./scripts/remove-course.sh
