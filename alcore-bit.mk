@@ -12,6 +12,8 @@ alcore.rebuild.static: alcore.setup.theme
 	sudo /opt/bitnami/apps/edx/bin/edxapp-update-assets-lms
 	sudo /opt/bitnami/apps/edx/bin/edxapp-update-assets-cms
 
+alcore.update.theme: alcore.rebuild.static alcore.refresh
+
 alcore.refresh: alcore.apply.configuration
 	sudo /opt/bitnami/ctlscript.sh restart apache
 	sudo /opt/bitnami/ctlscript.sh restart edx
