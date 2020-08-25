@@ -19,6 +19,9 @@ alcore.restart: alcore.apply.configuration
 	sudo /opt/bitnami/ctlscript.sh restart apache
 	sudo /opt/bitnami/ctlscript.sh restart edx
 
+alcore.restart.all: alcore.apply.configuration
+	sudo /opt/bitnami/ctlscript.sh restart
+
 alcore.update.theme: alcore.rebuild.static alcore.restart
 
 alcore.init:
