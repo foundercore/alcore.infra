@@ -15,3 +15,6 @@ alcore.rebuild.static: alcore.setup.theme
 alcore.refresh: alcore.apply.configuration
 	sudo /opt/bitnami/ctlscript.sh restart apache
 	sudo /opt/bitnami/ctlscript.sh restart edx
+
+alcore.init:
+	sudo /opt/bitnami/bnhelper-tool
