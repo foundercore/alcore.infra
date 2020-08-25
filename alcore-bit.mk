@@ -8,15 +8,18 @@ alcore.setup.theme:
 	sudo chmod 755 ./scripts/setup-themes.sh
 	sh ./scripts/setup-themes.sh
 
+alcore.setup.domain:
+
+
 alcore.rebuild.static: alcore.setup.theme
 	sudo /opt/bitnami/apps/edx/bin/edxapp-update-assets-lms
 	sudo /opt/bitnami/apps/edx/bin/edxapp-update-assets-cms
 
-alcore.update.theme: alcore.rebuild.static alcore.refresh
-
-alcore.refresh: alcore.apply.configuration
+alcore.restart: alcore.apply.configuration
 	sudo /opt/bitnami/ctlscript.sh restart apache
 	sudo /opt/bitnami/ctlscript.sh restart edx
+
+alcore.update.theme: alcore.rebuild.static alcore.restart
 
 alcore.init:
 	sudo /opt/bitnami/bnhelper-tool

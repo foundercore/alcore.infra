@@ -34,13 +34,13 @@ alcore.configure.nginx.lms:
 alcore.configure.nginx.cms:
 	sudo vim /edx/app/nginx/sites-available/cms
 
-alcore.restart.lms:
+alcore.refresh.lms:
 	/edx/bin/supervisorctl restart lms
 
-alcore.restart.cms:
+alcore.refresh.cms:
 	/edx/bin/supervisorctl restart cms
 
-alcore.restart.worker:
+alcore.refresh.worker:
 	/edx/bin/supervisorctl restart edxapp_worker
 
-alcore.restart: alcore.restart.cms alcore.restart.lms
+alcore.refresh: alcore.refresh.cms alcore.refresh.lms
