@@ -2,7 +2,7 @@
 
 XBLOCK_ROOT=/opt/bitnami/app/xblocks
 
-if [ $USER -ne 'root' ]; then
+if [ '$USER' -ne 'root' ]; then
   echo "first run: make alcore.xblock.switch-user"
   exit 1
 fi
