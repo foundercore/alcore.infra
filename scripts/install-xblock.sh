@@ -4,8 +4,8 @@ XBLOCK_ROOT=/opt/bitnami/app/xblocks
 
 if [ "$USER" != "root" ]; then
   printf "#########################################\n"
-  printf "###           !IMPORTANT!             ###"
-  printf "      $ make alcore.xblock.switch-user   "
+  printf "###           !IMPORTANT!             ###\n"
+  printf "      $ make alcore.xblock.switch-user   \n"
   printf "#########################################\n"
   exit 1
 fi
