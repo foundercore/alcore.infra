@@ -183,8 +183,9 @@
   "SECRET_KEY": "facaf4a79140c30d53c4",
   "SEGMENT_KEY": null,
   "SOCIAL_AUTH_OAUTH_SECRETS": {
-        "facebook": "f0f028155baa8084cd218a3af19eaac0"
-    },
+    "facebook": "f0f028155baa8084cd218a3af19eaac0",
+    "azuread-oauth2": "abcdef12341yHlmOrR8D3vlV1cD2VtL7k9xk9DSB8vw="
+  },
   "SOCIAL_AUTH_SAML_SP_PRIVATE_KEY": "",
   "SOCIAL_AUTH_SAML_SP_PRIVATE_KEY_DICT": {},
   "SOCIAL_AUTH_SAML_SP_PUBLIC_CERT": "",
