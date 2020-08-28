@@ -184,7 +184,7 @@
   "SEGMENT_KEY": null,
   "SOCIAL_AUTH_OAUTH_SECRETS": {
     "facebook": "f0f028155baa8084cd218a3af19eaac0",
-    "azuread-oauth2": "abcdef12341yHlmOrR8D3vlV1cD2VtL7k9xk9DSB8vw="
+    "azuread-oauth2": "O~Z~l2rn-Kc8v5ZemBz6G2WNW6q~_jcy11"
   },
   "SOCIAL_AUTH_SAML_SP_PRIVATE_KEY": "",
   "SOCIAL_AUTH_SAML_SP_PRIVATE_KEY_DICT": {},
