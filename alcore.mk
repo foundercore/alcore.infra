@@ -1,46 +1,46 @@
-# create the admin account
-alcore.create.admin:
-	cd /edx/app/edxapp/edx-platform; \
-		sudo -u www-data /edx/bin/python.edxapp ./manage.py lms --settings aws createsuperuser
+alcore.apply.configuration:
+	sudo cp ./configs/cloud/lms.env.json /opt/bitnami/apps/edx/conf/lms.env.json
+	sudo cp ./configs/cloud/lms.auth.json /opt/bitnami/apps/edx/conf/lms.auth.json
+	sudo cp ./configs/cloud/cms.env.json /opt/bitnami/apps/edx/conf/cms.env.json
+	sudo cp ./configs/cloud/cms.auth.json /opt/bitnami/apps/edx/conf/cms.auth.json
 
-# Optional: add the ubuntu user to a couple of the Open edX Linux groups. This will greatly simplify working with Open edX system files.
-alcore.add-user:
-	sudo usermod -a -G www-data ubuntu
-	sudo usermod -a -G edxapp ubuntu
+alcore.setup.theme:
+	sudo chmod 755 ./scripts/setup-themes.sh
+	sh ./scripts/setup-themes.sh
 
-alcore.configure.update:
-	sudo cp ./configs/lms.env.json /edx/app/edxapp/lms.env.json
-	sudo cp ./configs/lms.auth.json /edx/app/edxapp/lms.auth.json
-	sudo cp ./configs/cms.env.json /edx/app/edxapp/cms.env.json
-	sudo cp ./configs/cms.auth.json /edx/app/edxapp/cms.auth.json
+alcore.setup.domain:
+	echo '#TODO'
 
-alcore.static.compile:
-	sudo chmod 755 ./scripts/compile-assets.sh
-	sh ./scripts/compile-assets.sh
+alcore.rebuild.static: alcore.setup.theme
+	sudo /opt/bitnami/apps/edx/bin/edxapp-update-assets-lms
+	sudo /opt/bitnami/apps/edx/bin/edxapp-update-assets-cms
 
-alcore.change-owner.themes:
-	chown edxapp -R /home/ubuntu/alcore.themes
-	chgrp edxapp -R /home/ubuntu/alcore.themes
+alcore.restart: alcore.apply.configuration
+	sudo /opt/bitnami/ctlscript.sh restart apache
+	sudo /opt/bitnami/ctlscript.sh restart edx
 
-alcore.configure.apply: alcore.configure.update alcore.static.compile alcore.restart
+alcore.restart.all: alcore.apply.configuration
+	sudo /opt/bitnami/ctlscript.sh restart
 
-alcore.configure.ssl:
-	sudo apt-get install certbot python-certbot-nginx -y
-	sudo certbot --authenticator standalone --installer nginx --pre-hook "service nginx stop" --post-hook "service nginx start"
+alcore.update.theme: alcore.rebuild.static alcore.restart
 
-alcore.configure.nginx.lms:
-	sudo vim /edx/app/nginx/sites-available/lms
+alcore.init:
+	sudo /opt/bitnami/bnhelper-tool
 
-alcore.configure.nginx.cms:
-	sudo vim /edx/app/nginx/sites-available/cms
+alcore.log.lms:
+	cat /opt/bitnami/apps/edx/var/log/lms/edx.log
 
-alcore.refresh.lms:
-	/edx/bin/supervisorctl restart lms
+alcore.log.cms:
+	cat /opt/bitnami/apps/edx/var/log/cms/edx.log
 
-alcore.refresh.cms:
-	/edx/bin/supervisorctl restart cms
+alcore.course.delete:
+	sudo chmod 755 ./scripts/remove-course.sh
+	sh ./scripts/remove-course.sh
 
-alcore.refresh.worker:
-	/edx/bin/supervisorctl restart edxapp_worker
+alcore.xblock.switch-user:
+	sudo /opt/bitnami/use_edx
+	source /opt/bitnami/apps/edx/venvs/edxapp/bin/activate
 
-alcore.refresh: alcore.refresh.cms alcore.refresh.lms
+alcore.xblock.install:
+	sudo chmod 755 ./scripts/install-xblock.sh
+	sh ./scripts/install-xblock.sh
