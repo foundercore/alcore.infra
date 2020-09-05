@@ -5,8 +5,8 @@ alcore.apply.configuration:
 	sudo cp ./configs/cloud/cms.auth.json /opt/bitnami/apps/edx/conf/cms.auth.json
 
 alcore.setup.theme:
-	sudo chmod 755 ./scripts/setup-themes.sh
-	sh ./scripts/setup-themes.sh
+	sudo chmod 755 ./scripts/cloud/setup-themes.sh
+	sh ./scripts/cloud/setup-themes.sh
 
 alcore.setup.domain:
 	echo '#TODO'
@@ -34,13 +34,13 @@ alcore.log.cms:
 	cat /opt/bitnami/apps/edx/var/log/cms/edx.log
 
 alcore.course.delete:
-	sudo chmod 755 ./scripts/remove-course.sh
-	sh ./scripts/remove-course.sh
+	sudo chmod 755 ./scripts/cloud/remove-course.sh
+	sh ./scripts/cloud/remove-course.sh
 
 alcore.xblock.switch-user:
 	sudo /opt/bitnami/use_edx
 	source /opt/bitnami/apps/edx/venvs/edxapp/bin/activate
 
 alcore.xblock.install:
-	sudo chmod 755 ./scripts/install-xblock.sh
-	sh ./scripts/install-xblock.sh
+	sudo chmod 755 ./scripts/cloud/install-xblock.sh
+	sh ./scripts/cloud/install-xblock.sh
