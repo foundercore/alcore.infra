@@ -11,6 +11,9 @@ ssh.demo:
 clean.learn:
 	ssh-keygen -f "/home/$(USER)/.ssh/known_hosts" -R "ec2-35-174-190-84.compute-1.amazonaws.com"
 
+clean.dev:
+	ssh-keygen -f "/home/$(USER)/.ssh/known_hosts" -R "ec2-54-160-60-161.compute-1.amazonaws.com"
+
 ssh.learn:
 	ssh -i ./local/alcore-us-east-1-bitnami-key.pem bitnami@ec2-35-174-190-84.compute-1.amazonaws.com
 
