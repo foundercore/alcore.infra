@@ -24,4 +24,4 @@ tunnel.learn:
 	ssh -N -L 8888:127.0.0.1:80 -i ./local/alcore-us-east-1-bitnami-key.pem bitnami@ec2-35-174-190-84.compute-1.amazonaws.com
 
 tunnel.dev:
-	ssh -N -L 8888:127.0.0.1:80 -i ./tmp/alcore-us-east-1-bitnami-key.pem bitnami@ec2-54-160-60-161.compute-1.amazonaws.com
+	ssh -N -L 8888:127.0.0.1:80 -i ./local/alcore-us-east-1-bitnami-key.pem bitnami@ec2-54-160-60-161.compute-1.amazonaws.com
