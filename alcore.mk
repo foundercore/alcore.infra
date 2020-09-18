@@ -8,6 +8,10 @@ alcore.setup.theme:
 	sudo chmod 755 ./scripts/cloud/setup-themes.sh
 	sh ./scripts/cloud/setup-themes.sh
 
+alcore.setup.engine:
+	sudo chmod 755 ./scripts/cloud/setup-engine.sh
+	sh ./scripts/cloud/setup-engine.sh
+
 alcore.setup.domain:
 	echo '#TODO'
 
@@ -23,6 +27,8 @@ alcore.restart.all: alcore.apply.configuration
 	sudo /opt/bitnami/ctlscript.sh restart
 
 alcore.update.theme: alcore.rebuild.static alcore.restart
+
+alcore.update.engine: alcore.setup.engine alcore.restart
 
 alcore.init:
 	sudo /opt/bitnami/bnhelper-tool
