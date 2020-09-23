@@ -1,5 +1,6 @@
 .idea
 tmp
 local
-
+.DS_Store
 *.out
+node_modules

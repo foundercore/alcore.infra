@@ -1,15 +1,12 @@
 alcore.apply.configuration:
-	sudo cp ./configs/cloud/lms.env.json /opt/bitnami/apps/edx/conf/lms.env.json
-	sudo cp ./configs/cloud/lms.auth.json /opt/bitnami/apps/edx/conf/lms.auth.json
-	sudo cp ./configs/cloud/cms.env.json /opt/bitnami/apps/edx/conf/cms.env.json
-	sudo cp ./configs/cloud/cms.auth.json /opt/bitnami/apps/edx/conf/cms.auth.json
+	sudo cp ./local/configurations/cloud/lms.env.json /opt/bitnami/apps/edx/conf/lms.env.json
+	sudo cp ./local/configurations/cloud/lms.auth.json /opt/bitnami/apps/edx/conf/lms.auth.json
+	sudo cp ./local/configurations/cloud/cms.env.json /opt/bitnami/apps/edx/conf/cms.env.json
+	sudo cp ./local/configurations/cloud/cms.auth.json /opt/bitnami/apps/edx/conf/cms.auth.json
 
 alcore.setup.theme:
 	sudo chmod 755 ./scripts/cloud/setup-themes.sh
 	sh ./scripts/cloud/setup-themes.sh
-
-alcore.setup.domain:
-	echo '#TODO'
 
 alcore.rebuild.static: alcore.setup.theme
 	sudo /opt/bitnami/apps/edx/bin/edxapp-update-assets-lms
@@ -22,7 +19,10 @@ alcore.restart: alcore.apply.configuration
 alcore.restart.all: alcore.apply.configuration
 	sudo /opt/bitnami/ctlscript.sh restart
 
-alcore.update.theme: alcore.rebuild.static alcore.restart
+alcore.run.plop:
+	npm run apply
+
+alcore.update.theme: alcore.run.plop alcore.rebuild.static alcore.restart
 
 alcore.init:
 	sudo /opt/bitnami/bnhelper-tool

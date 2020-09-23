@@ -1,0 +1,24 @@
+{
+  "name": "alcore.infra",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "apply": "plop",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/foundercore/alcore.infra.git"
+  },
+  "author": "Foundercore Pvt. Ltd.",
+  "license": "SEE LICENSE IN license.md",
+  "bugs": {
+    "url": "https://github.com/foundercore/alcore.infra/issues"
+  },
+  "homepage": "https://github.com/foundercore/alcore.infra#readme",
+  "dependencies": {
+    "lodash": "^4.17.20",
+    "plop": "^2.7.4"
+  }
+}
