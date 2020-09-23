@@ -20,6 +20,7 @@ alcore.restart.all: alcore.apply.configuration
 	sudo /opt/bitnami/ctlscript.sh restart
 
 alcore.run.plop:
+	sudo rm -rf ./local/configurations
 	npm run apply
 
 alcore.update.theme: alcore.run.plop alcore.rebuild.static alcore.restart
