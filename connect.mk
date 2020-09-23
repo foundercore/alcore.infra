@@ -11,13 +11,13 @@ clean.demo:
 clean.endeavor:
 	ssh-keygen -f "$(HOME)/.ssh/known_hosts" -R "ec2-35-174-190-84.compute-1.amazonaws.com"
 
-ssh.dev: clean.dev
+ssh.dev:
 	ssh -i ./local/alcore-us-east-1-bitnami-key.pem bitnami@ec2-54-160-60-161.compute-1.amazonaws.com
 
-ssh.demo: clean.demo
+ssh.demo:
 	ssh -i ./local/alcore-us-east-1-bitnami-key.pem bitnami@ec2-54-145-33-149.compute-1.amazonaws.com
 
-ssh.endeavor: clean.endeavor
+ssh.endeavor:
 	ssh -i ./local/alcore-us-east-1-endeavor.pem bitnami@ec2-35-174-190-84.compute-1.amazonaws.com
 
 tunnel.dev:
