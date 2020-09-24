@@ -23,16 +23,6 @@ module.exports = plop => {
       name: 'emailPassword',
       message: 'Enter system user\'s password:',
       default: 'alcore-team-2020',
-    },
-    filename: {
-      type: 'input',
-      name: 'filename',
-      message: 'Enter edx-platform filename:',
-    },
-    filepath: {
-      type: 'input',
-      name: 'filepath',
-      message: 'Enter filepath from edx-platform folder:',
     }
   }
 
@@ -56,11 +46,6 @@ module.exports = plop => {
       type: 'add',
       path: 'local/configurations/lms.auth.json',
       templateFile: 'templates/configurations/lms.auth.json.hbs',
-    },
-    fileAdd: {
-      type: 'add',
-      path: '{{filepath}}/{{filename}}',
-      templateFile: 'templates/code/{{filename}}.hbs',
     }
   }
 
@@ -84,5 +69,24 @@ module.exports = plop => {
     description: 'alcore configuration manager',
     prompts: _.values(prompts),
     actions: _.values(actions)
+  });
+  
+  plop.setGenerator('fileManager', {
+    description: 'alcore file manager',
+    prompts: [{
+			type: 'input',
+			name: 'filename',
+			message: 'Enter edx-platform filename:'
+		},
+		{
+			type: 'input',
+			name: 'filepath',
+			message: 'Enter filepath from edx-platform folder: '}],
+			
+    actions: [{
+    			type: 'add',
+    			path: '{{filepath}}/{{filename}}',
+    			templateFile: 'templates/code/{{filename}}.hbs'
+    			}]
   });
 };
