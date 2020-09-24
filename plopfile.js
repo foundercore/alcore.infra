@@ -23,7 +23,7 @@ module.exports = plop => {
       name: 'emailPassword',
       message: 'Enter system user\'s password:',
       default: 'alcore-team-2020',
-    },
+    }
   }
 
   const actions = {
@@ -69,5 +69,24 @@ module.exports = plop => {
     description: 'alcore configuration manager',
     prompts: _.values(prompts),
     actions: _.values(actions)
+  });
+  
+  plop.setGenerator('fileManager', {
+    description: 'alcore file manager',
+    prompts: [{
+			type: 'input',
+			name: 'filename',
+			message: 'Enter edx-platform filename:'
+		},
+		{
+			type: 'input',
+			name: 'filepath',
+			message: 'Enter filepath from edx-platform folder: '}],
+			
+    actions: [{
+    			type: 'add',
+    			path: '/opt/bitnami/apps/edx/edx-platform/{{filepath}}/{{filename}}',
+    			templateFile: 'templates/code/{{filename}}.hbs'
+    			}]
   });
 };
