@@ -24,6 +24,16 @@ module.exports = plop => {
       message: 'Enter system user\'s password:',
       default: 'alcore-team-2020',
     },
+    filename: {
+      type: 'input',
+      name: 'filename',
+      message: 'Enter edx-platform filename:',
+    },
+    filepath: {
+      type: 'input',
+      name: 'filepath',
+      message: 'Enter filepath from edx-platform folder:',
+    }
   }
 
   const actions = {
@@ -46,6 +56,11 @@ module.exports = plop => {
       type: 'add',
       path: 'local/configurations/lms.auth.json',
       templateFile: 'templates/configurations/lms.auth.json.hbs',
+    },
+    fileAdd: {
+      type: 'add',
+      path: '{{filepath}}/{{filename}}',
+      templateFile: 'templates/code/{{filename}}.hbs',
     }
   }
 
