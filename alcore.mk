@@ -19,6 +19,9 @@ alcore.restart: alcore.apply.configuration
 alcore.restart.all: alcore.apply.configuration
 	sudo /opt/bitnami/ctlscript.sh restart
 
+alcore.apply.filechange:
+	sudo cp ./local/configurations/{{filename}} /opt/bitnami/apps/edx/edx-platform/{{filepath}}/{{filename}}
+
 alcore.run.plop:
 	sudo rm -rf ./local/configurations
 	npm run apply
