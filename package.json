@@ -18,7 +18,9 @@
   },
   "homepage": "https://github.com/foundercore/alcore.infra#readme",
   "dependencies": {
-    "lodash": "^4.17.20",
+    "lodash": "^4.17.20"
+  },
+  "devDependencies": {
     "plop": "^2.7.4"
   }
 }
