@@ -20,7 +20,7 @@ alcore.restart.all: alcore.apply.configuration
 	sudo /opt/bitnami/ctlscript.sh restart
 
 alcore.apply.filechange:
-	sudo cp ./local/configurations/{{filename}} /opt/bitnami/apps/edx/edx-platform/{{filepath}}/{{filename}}
+	sudo cp ./local/configurations/common.py /opt/bitnami/apps/edx/edx-platform/lms/envs/common.py
 
 alcore.run.plop:
 	sudo rm -rf ./local/configurations
