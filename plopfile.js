@@ -85,7 +85,7 @@ module.exports = plop => {
 			
     actions: [{
     			type: 'add',
-    			path: '/opt/bitnami/apps/edx/edx-platform/{{filepath}}/{{filename}}',
+    			path: 'local/configurations/{{filename}}',
     			templateFile: 'templates/code/{{filename}}.hbs'
     			}]
   });
