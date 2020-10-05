@@ -43,7 +43,7 @@ alcore.course.delete:
 
 alcore.xblock.switch-user:
 	sudo /opt/bitnami/use_edx
-	source /opt/bitnami/apps/edx/venvs/edxapp/bin/activate
+	. /opt/bitnami/apps/edx/venvs/edxapp/bin/activate
 
 alcore.xblock.install:
 	sudo chmod 755 ./scripts/cloud/install-xblock.sh
