@@ -12,6 +12,11 @@ module.exports = plop => {
       name: 'subDomain',
       message: 'Enter the sub-domain name:',
     },
+    private: {
+      type: 'input',
+      name: 'private',
+      message: 'Enter the private ip for PREVIEW mode:',
+    },
     emailUser: {
       type: 'input',
       name: 'emailUser',
@@ -55,6 +60,10 @@ module.exports = plop => {
 
   if (!_.isEmpty(process.env.SUB_DOMAIN)) {
     delete prompts.subDomain;
+  }
+  
+  if (!_.isEmpty(process.env.PRIVATE)) {
+    delete prompts.private;
   }
 
   if (!_.isEmpty(process.env.EMAIL_USER)) {
