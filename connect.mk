@@ -28,3 +28,6 @@ tunnel.demo:
 
 tunnel.endeavor:
 	ssh -N -L 8888:127.0.0.1:80 -i ./local/alcore-us-east-1-endeavor.pem bitnami@ec2-35-174-190-84.compute-1.amazonaws.com
+	
+tunnel.prod:
+	ssh -N -L 8888:127.0.0.1:80 -i ./local/endeavor-ap-south-1-lms.pem bitnami@ec2-3-6-102-150.ap-south-1.compute.amazonaws.com
