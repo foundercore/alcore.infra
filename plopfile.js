@@ -7,6 +7,11 @@ module.exports = plop => {
       name: 'platformName',
       message: 'Enter the platform name:',
     },
+	privateip: {
+      type: 'input',
+      name: 'privateip',
+      message: 'Enter the machine private IP:',
+    },
     subDomain: {
       type: 'input',
       name: 'subDomain',
@@ -63,7 +68,11 @@ module.exports = plop => {
   }
   
   if (!_.isEmpty(process.env.CMS_DOMAIN)) {
-    delete prompts.private;
+    delete prompts.cmsDomain;
+  }
+  
+  if (!_.isEmpty(process.env.privateip)) {
+    delete prompts.privateip;
   }
 
   if (!_.isEmpty(process.env.EMAIL_USER)) {
