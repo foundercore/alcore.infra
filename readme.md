@@ -1,4 +1,4 @@
-#restart mongodb 
+# restart mongodb 
 sudo /opt/bitnami/ctlscript.sh restart mongodb
 
 
