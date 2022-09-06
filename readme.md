@@ -23,3 +23,8 @@ While restarting apache if you encounter issues related to port 80 not avaialabl
 - sudo pkill -f nginx
 - sudo pkill -f apache
 - sudo /opt/bitnami/ctlscript.sh start apache
+
+# deleting course
+- cd /home/bitnami/alcore.infra/scripts/cloud
+- sh remove-course-v1.sh
+- pass the course id 
